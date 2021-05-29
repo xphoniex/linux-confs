@@ -9,3 +9,4 @@ cp ~/.config/polybar/config .config/polybar/config
 cp ~/.config/fish/config.fish .config/fish/
 cp ~/.alacritty.yml .
 
+cp /usr/lib/systemd/user/mpd.service usr/lib/systemd/user/mpd.service
