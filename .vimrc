@@ -1,3 +1,6 @@
+"	visual block
+:nnoremap vb <c-v>
+
 "	default color scheme
 colorscheme darkblue
 
