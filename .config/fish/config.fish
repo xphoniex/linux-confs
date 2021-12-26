@@ -18,3 +18,5 @@ function fish_prompt
     set_color $arrowcol -b normal
     echo -n "⮀ "
 end
+
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
