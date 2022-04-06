@@ -154,6 +154,8 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 	brightnessctl -q s 5%-; \
 	~/.config/sxhkd/notifs.sh brightness
+Print
+	gnome-screenshot
 
 #
 # Show clipmenu
