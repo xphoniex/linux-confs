@@ -20,3 +20,4 @@ function fish_prompt
 end
 
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
+
