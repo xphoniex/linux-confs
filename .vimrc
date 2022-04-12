@@ -18,7 +18,7 @@ colorscheme darkblue
 syntax enable
 filetype plugin indent on
 
-"	pick from 8, 27, 23
+"	autocomplete menu color, pick from 8, 27, 23
 highlight Pmenu ctermbg=23
 
 "	status bar
