@@ -21,6 +21,10 @@ filetype plugin indent on
 "	autocomplete menu color, pick from 8, 27, 23
 highlight Pmenu ctermbg=23
 
+"	color for lines w/ compiler error (from: YcmWarningSection)
+highlight SpellCap ctermbg=52
+highlight SpellBad ctermbg=52
+
 "	status bar
 set laststatus=2
 
