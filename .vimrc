@@ -40,6 +40,8 @@ let g:ycm_filter_diagnostics = { "rust": { "regex": ["unresolved-proc-macro"] } 
 
 "	jump to definition/declaration
 nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration
+nnoremap vgd :vsplit \| YcmCompleter GoToDefinitionElseDeclaration
+nnoremap hgd :split \| YcmCompleter GoToDefinitionElseDeclaration
 "	back with Ctrl + o
 nnoremap gf :tab split \| YcmCompleter GoToDefinition<CR>
 "	gf creates new tab, switch with gt, gT, :tabn #
