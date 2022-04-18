@@ -49,3 +49,7 @@ nnoremap gf :tab split \| YcmCompleter GoToDefinition<CR>
 "	tabstops
 set ts=4 sw=4
 
+"	auto run rustfmt on save
+let g:rustfmt_autosave = 1
+
+
