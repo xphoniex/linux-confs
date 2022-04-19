@@ -53,3 +53,8 @@ set ts=4 sw=4
 let g:rustfmt_autosave = 1
 
 
+"	set split direction
+set splitright
+set splitbelow
+
+
