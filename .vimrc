@@ -58,3 +58,5 @@ set splitright
 set splitbelow
 
 
+"let g:ycm_gopls_binary_path = 'gopls'
+
