@@ -60,3 +60,21 @@ set splitbelow
 
 "let g:ycm_gopls_binary_path = 'gopls'
 
+"	toggle rust-analyzer
+let t:rust_analyzer_enabled = 0
+let g:ycm_rust_toolchain_root = '/'
+function! ToggleRustAnalyzer()
+	if t:rust_analyzer_enabled
+		let t:rust_analyzer_enabled = 0
+		let g:ycm_rust_toolchain_root = '/'
+		YcmRestartServer
+		echo "Rust-analyzer turned off"
+	else
+		let t:rust_analyzer_enabled = 1
+		unlet g:ycm_rust_toolchain_root
+		YcmRestartServer
+		echo "Rust-analyzer turned on"
+	endif
+endfunction
+:command ToggleRustAnalyzer call ToggleRustAnalyzer()
+
