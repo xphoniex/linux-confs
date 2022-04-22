@@ -78,3 +78,8 @@ function! ToggleRustAnalyzer()
 endfunction
 :command ToggleRustAnalyzer call ToggleRustAnalyzer()
 
+"	solution for fast finger B-)
+command! Q :q
+command! W :w
+command! QA :qa
+
