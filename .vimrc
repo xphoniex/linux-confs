@@ -83,3 +83,8 @@ command! Q :q
 command! W :w
 command! QA :qa
 
+"	easy save
+":imap <c-s> <Esc>:w<CR>li
+:imap <c-s> <Esc>:w<CR>
+:nmap <c-s> :w<CR>
+
