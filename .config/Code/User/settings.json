@@ -1,0 +1,33 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "workbench.iconTheme": "vs-minimal",
+    "go.toolsEnvVars": {
+        "GO111MODULE": "on"
+    },
+    "diffEditor.renderSideBySide": false,
+    "workbench.editor.showTabs": true,
+    "window.menuBarVisibility": "toggle",
+    "go.inferGopath": false,
+    "go.useLanguageServer": true,
+    "extensions.ignoreRecommendations": false,
+    //"go.languageServerExperimentalFeatures": { "format": true, "autoComplete": true, "hover": true },
+    "gopls": {
+    
+        //"usePlaceholders": true,    // add parameter placeholders when completing a function
+        //"completeUnimported": true, // autocomplete unimported packages
+        //"deepCompletion": true,     // enable deep completion
+        "buildFlags": ["-tags=e2e"],
+    },
+    "workbench.colorTheme": "Pale Fire High Contrast",
+    "update.mode": "start",
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "extensions.autoCheckUpdates": false,
+    "extensions.autoUpdate": false,
+    "telemetry.telemetryLevel": "off",
+    "json.schemaDownload.enable": false,
+    "git.terminalAuthentication": false,
+    "editor.fontSize": 15,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "go.formatTool": "goimports"
+}
