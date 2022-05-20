@@ -12,6 +12,7 @@ image/webp=org.gnome.gThumb.desktop
 application/x-colpkg=anki.desktop
 application/x-apkg=anki.desktop
 application/x-ankiaddon=anki.desktop
+application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop
 
 [Added Associations]
 application/javascript=org.gnome.gedit.desktop;sublime_text.desktop;
@@ -20,7 +21,7 @@ text/markdown=org.gnome.gedit.desktop;
 application/epub+zip=FBReader.desktop;evince.desktop;
 inode/directory=code.desktop;atom.desktop;sublime_text.desktop;
 video/mp4=mplayer.desktop;vlc.desktop;org.gnome.Totem.desktop;
-video/x-matroska=vlc.desktop;mplayer.desktop;org.gnome.Totem.desktop;
+video/x-matroska=vlc.desktop;mpv.desktop;mplayer.desktop;org.gnome.Totem.desktop;
 application/vnd.debian.binary-package=org.gnome.FileRoller.desktop;
 text/html=org.gnome.gedit.desktop;sublime_text.desktop;
 audio/mpeg=mplayer.desktop;audacity.desktop;vlc.desktop;
@@ -61,6 +62,7 @@ text/x-log=org.gnome.gedit.desktop;sublime_text.desktop;
 application/vnd.rar=org.gnome.FileRoller.desktop;
 audio/x-opus+ogg=vlc.desktop;
 text/x-makefile=org.gnome.gedit.desktop;
+application/vnd.oasis.opendocument.spreadsheet=libreoffice-startcenter.desktop;libreoffice-calc.desktop;
 
 [Removed Associations]
 video/mp4=nautilus-autorun-software.desktop;
