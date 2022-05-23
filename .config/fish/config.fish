@@ -21,3 +21,12 @@ end
 
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
 
+
+if test -s ~/.TODO
+	set_color magenta
+	echo
+	cat ~/.TODO | sed 's/^/ /' | grep -v '\[x\]' | shuf -n 1
+	echo
+end
+set_color normal
+
