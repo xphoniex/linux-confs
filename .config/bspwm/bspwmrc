@@ -25,4 +25,4 @@ bspc rule -a Pcmanfm state=floating
 
 xset -dpms s off # turn of screensaver
 
-polybar example &
+feh --bg-fill --randomize ~/Pictures/Wallpapers/*
