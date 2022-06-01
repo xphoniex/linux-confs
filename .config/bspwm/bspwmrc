@@ -24,6 +24,7 @@ bspc rule -a Gnome-system-monitor state=floating
 bspc rule -a Org.gnome.Nautilus state=floating
 bspc rule -a Nautilus state=floating
 bspc rule -a Pcmanfm state=floating
+#bspc rule -a blankscreen state=tiled
 
 xset -dpms s off # turn of screensaver
 
