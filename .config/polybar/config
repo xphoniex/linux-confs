@@ -493,3 +493,13 @@ screenchange-reload = true
 ;margin-bottom = 5
 
 ; vim:ft=dosini
+
+[module/vol-up-down]
+type = custom/text
+content = "-  +"
+#content-background = #000
+#content-foreground = #fff
+content-foreground = #444
+#content-padding = 2
+click-left = pactl set-sink-volume @DEFAULT_SINK@ -5%
+click-right = pactl set-sink-volume @DEFAULT_SINK@ +5%
