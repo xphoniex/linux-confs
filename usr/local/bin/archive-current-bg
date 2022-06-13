@@ -1,0 +1,8 @@
+#! /bin/bash
+
+bg=$(tail -n+2 .fehbg | cut -d "'" -f 2)
+dir=$(dirname $bg)
+name=$(basename $bg)
+
+mv "$bg" "$dir/archive/$name"
+feh --bg-fill --randomize ~/Pictures/Wallpapers/
