@@ -20,3 +20,4 @@ cp /usr/lib/systemd/user/timetracker.service usr/lib/systemd/user/
 cp ~/.vimrc .
 
 cp /usr/local/bin/archive-current-bg usr/local/bin/
+cat ~/.gitconfig | grep -v email > .gitconfig

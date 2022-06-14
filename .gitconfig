@@ -1,0 +1,4 @@
+[user]
+	name = xphoniex
+[alias]
+	purge-branch = "!git branch -D \"$1\" && git branch -r -d fork/\"$1\" #"
