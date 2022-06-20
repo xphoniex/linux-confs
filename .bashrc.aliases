@@ -1,0 +1,3 @@
+alias cls="clear && printf '\e[3J'"
+alias term="kill -9 $$"
+alias nocuda="export CUDA_VISIBLE_DEVICES=\"\""
