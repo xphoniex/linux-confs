@@ -1,6 +1,6 @@
 #! /bin/sh
 
-sxhkd &
+sxhkd -m1 &
 
 if  xrandr | grep "HDMI-1-1 connected"; then
 	xrandr --output HDMI-1-1 --primary --mode 2560x1440 --rotate normal --output eDP-1-1 --mode 1920x1080 --rotate normal --right-of HDMI-1-1
