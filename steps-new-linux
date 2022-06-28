@@ -1,0 +1,52 @@
+sudo apt update
+sudo apt install git
+sudo apt install build-essential
+sudo apt install ncurses-dev
+
+git clone --depth 1 https://github.com/fish-shell/fish-shell.git
+git clone --depth 1 https://github.com/polybar/polybar
+git clone --depth 1 https://github.com/baskerville/bspwm
+git clone --depth 1 https://github.com/baskerville/sxhkd
+
+
+sudo apt  install curl
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+git clone --depth 1 https://github.com/alacritty/alacritty
+sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+
+sudo ln -s /usr/local/bin/fish /usr/bin/fish # for alacritty
+
+
+sudo apt install feh
+
+# polybar
+apt install build-essential git cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev
+apt install libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev
+
+
+# font
+git clone --depth 1 https://github.com/stark/siji
+mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.d/70-no-bitmaps.conf.bk
+
+# ifconfig
+sudo apt install net-tools
+
+
+# rofi
+sudo apt install rofi
+
+# rofi needs clipmenu (and it needs clipnotify) for alt+v
+sudo apt install git build-essential libx11-dev libxtst-dev
+git clone https://github.com/cdown/clipnotify.git
+cd clipnotify
+sudo make
+sudo cp clipnotify /usr/local/bin/
+systemctl --user enable clipmenud
+
+git clone https://github.com/cdown/clipnotify.git
+sudo make install
+
+
+# font for icon in fish
+sudo apt install fonts-noto
