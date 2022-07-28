@@ -846,6 +846,9 @@ key_bindings:
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
 
+  - { key: Up, mods: Control|Shift, action: ScrollLineUp }
+  - { key: Down, mods: Control|Shift, action: ScrollLineDown }
+
 #debug:
   # Display the time it takes to redraw each frame.
   #render_timer: false
