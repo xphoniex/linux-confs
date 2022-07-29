@@ -71,7 +71,7 @@ function! ToggleRustAnalyzer()
 		echo "Rust-analyzer turned off"
 	else
 		let t:rust_analyzer_enabled = 1
-		unlet g:ycm_rust_toolchain_root
+		let g:ycm_rust_toolchain_root = expand($HOME) . '/.cargo/'
 		YcmRestartServer
 		echo "Rust-analyzer turned on"
 	endif
