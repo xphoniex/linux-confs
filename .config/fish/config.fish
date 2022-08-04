@@ -24,6 +24,8 @@ export DOCKER_HOST=unix:///run/user/1000/docker.sock
 export GOPATH=$HOME/.go
 set PATH /usr/local/go/bin $PATH
 set PATH $GOPATH/bin $PATH
+set PATH $HOME/.nvm/versions/node/v18.5.0/bin $PATH
+
 
 if test -s ~/.TODO
 	set_color magenta
