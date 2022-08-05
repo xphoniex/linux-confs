@@ -35,3 +35,4 @@ if test -s ~/.TODO
 end
 set_color normal
 
+alias disable-hdmi "xrandr --output HDMI-1 --off && bspc monitor -d 1 2 3 4 5 6 7 8 9 0 && feh --bg-fill --randomize ~/Pictures/Wallpapers/* && killall polybar; polybar large & disown"
