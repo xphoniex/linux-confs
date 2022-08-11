@@ -500,7 +500,7 @@ animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 2
+zone-type = x86_pkg_temp
 warn-temperature = 60
 
 format = <ramp> <label>
