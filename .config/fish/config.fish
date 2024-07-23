@@ -36,3 +36,5 @@ end
 set_color normal
 
 alias disable-hdmi "xrandr --output HDMI-1 --off && bspc monitor -d 1 2 3 4 5 6 7 8 9 0 && feh --bg-fill --randomize ~/Pictures/Wallpapers/* && killall polybar; polybar large & disown"
+alias gommit "env GIT_COMMITTER_DATE=(date --utc +%Y-%m-%dT%H:%M:%S%z) git commit -S -s -a --date=(date --utc +%Y-%m-%dT%H:%M:%S%z)"
+alias gammend "env GIT_COMMITTER_DATE=(date --utc +%Y-%m-%dT%H:%M:%S%z) git commit -S -s -a --amend --date=(date --utc +%Y-%m-%dT%H:%M:%S%z)"
