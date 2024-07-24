@@ -122,7 +122,7 @@ modules-left = bspwm
 #modules-center = mpd
 modules-center = date
 #modules-right = filesystem backlight-acpi alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-modules-right = backlight-acpi pulseaudio networkspeeddown totaldownload networkspeedup totalupload memory cpu wlan eth battery temperature powermenu
+modules-right = backlight-acpi vol-up-down pulseaudio networkspeeddown totaldownload networkspeedup totalupload memory cpu wlan eth battery temperature powermenu
 
 
 tray-position = right
