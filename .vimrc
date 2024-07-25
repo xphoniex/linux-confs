@@ -49,6 +49,9 @@ nnoremap gf :tab split \| YcmCompleter GoToDefinition<CR>
 "	tabstops
 set ts=4 sw=4
 
+"	convert tabs to spaces
+map <F2> :set expandtab \| :retab \| :set noexpandtab<CR> :w <CR>
+
 "	auto run rustfmt on save
 let g:rustfmt_autosave = 1
 
