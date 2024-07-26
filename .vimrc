@@ -91,3 +91,6 @@ command! QA :qa
 :imap <c-s> <Esc>:w<CR>
 :nmap <c-s> :w<CR>
 
+" to remove eol, use following set and then :w
+" :set noendofline binary
+
