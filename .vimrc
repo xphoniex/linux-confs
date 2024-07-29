@@ -94,3 +94,13 @@ command! QA :qa
 " to remove eol, use following set and then :w
 " :set noendofline binary
 
+"ensure zig is a recognized filetype
+autocmd BufNewFile,BufRead *.zig set filetype=zig
+let g:ycm_language_server =
+    \ [
+    \{
+    \     'name': 'zls',
+    \     'filetypes': [ 'zig' ],
+    \     'cmdline': [ '/home/da/.local/bin/zls' ]
+    \    }
+    \ ]
