@@ -16,7 +16,8 @@ cp ~/.config/mpv/input.conf .config/mpv/
 cp ~/.alacritty.yml .
 
 cp /usr/lib/systemd/user/mpd.service usr/lib/systemd/user/mpd.service
-cp /usr/lib/systemd/user/timetracker.service usr/lib/systemd/user/
+
+cp ~/.config/systemd/user/timetracker.service .config/systemd/user/
 
 cp ~/.vimrc .
 
