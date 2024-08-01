@@ -567,5 +567,5 @@ content = "-  +"
 #content-foreground = #fff
 content-foreground = #444
 #content-padding = 2
-click-left = pactl set-sink-volume @DEFAULT_SINK@ -5%
-click-right = pactl set-sink-volume @DEFAULT_SINK@ +5%
+click-left = pactl set-sink-volume @DEFAULT_SINK@ -3dB
+click-right = pactl set-sink-volume @DEFAULT_SINK@ +3dB

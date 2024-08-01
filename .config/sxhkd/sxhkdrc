@@ -133,10 +133,10 @@ super + {Left,Down,Up,Right}
 #
 
 XF86AudioRaiseVolume
-	pactl set-sink-volume @DEFAULT_SINK@ +5%; \
+	pactl set-sink-volume @DEFAULT_SINK@ +3dB; \
 	~/.config/sxhkd/notifs.sh volume
 XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -5%; \
+	pactl set-sink-volume @DEFAULT_SINK@ -3dB; \
 	~/.config/sxhkd/notifs.sh volume
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
