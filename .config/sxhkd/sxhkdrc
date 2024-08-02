@@ -156,6 +156,8 @@ XF86MonBrightnessDown
 	~/.config/sxhkd/notifs.sh brightness
 Print
 	gnome-screenshot
+ctrl + Print
+	gnome-screenshot -w
 
 #
 # Show clipmenu
