@@ -1,0 +1,5 @@
+#! /bin/bash
+
+xinput list | grep "USB gaming mouse" | grep "pointer" | sed -E 's/.*id=([0-9]*).*/\1/' | xargs -I {} xinput set-button-map {} 1 2 3 4 5 6 7 4 5 10 11 12 13 14 15 16 17 18 19 20
+
+#xinput list | grep "USB gaming mouse" | grep "pointer" | grep -Eo "id=([0-9])*" | cut -c 4-

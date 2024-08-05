@@ -47,3 +47,5 @@ xset -dpms s off # turn of screensaver
 polybar large &
 #polybar small &
 feh --bg-fill --randomize ~/Pictures/Wallpapers/*
+
+/usr/local/bin/enable-side-scroll

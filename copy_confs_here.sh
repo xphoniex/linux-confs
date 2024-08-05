@@ -22,4 +22,5 @@ cp ~/.config/systemd/user/timetracker.service .config/systemd/user/
 cp ~/.vimrc .
 
 cp /usr/local/bin/archive-current-bg usr/local/bin/
+cp /usr/local/bin/enable-side-scroll usr/local/bin/
 cat ~/.gitconfig | grep -v email > .gitconfig
