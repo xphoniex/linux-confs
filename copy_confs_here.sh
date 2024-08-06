@@ -18,6 +18,9 @@ cp ~/.alacritty.yml .
 cp /usr/lib/systemd/user/mpd.service usr/lib/systemd/user/mpd.service
 
 cp ~/.config/systemd/user/timetracker.service .config/systemd/user/
+cp ~/.config/systemd/user/chapchap.service .config/systemd/user/
+
+cp ~/Documents/devops/chapchap.config .config/chapchap.config
 
 cp ~/.vimrc .
 

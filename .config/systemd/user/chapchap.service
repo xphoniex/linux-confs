@@ -1,0 +1,10 @@
+[Unit]
+Description=ChapChap kills distractions
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/chapchap --config /home/da/Documents/devops/chapchap.config
+
+[Install]
+WantedBy=default.target
