@@ -12,6 +12,7 @@ cp ~/.config/mimeapps.list .config/
 cp ~/.config/Code/User/settings.json .config/Code/User/
 cp ~/.config/mpv/mpv.conf .config/mpv/
 cp ~/.config/mpv/input.conf .config/mpv/
+cp ~/.config/mpv/osc.lua .config/mpv/
 
 cp ~/.alacritty.yml .
 
