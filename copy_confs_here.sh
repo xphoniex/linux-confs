@@ -25,6 +25,8 @@ cp ~/Documents/devops/chapchap.config .config/chapchap.config
 
 cp ~/.vimrc .
 
+cp ~/snap/firefox/common/.mozilla/firefox/7irn3dcm.default-1560603164746/chrome/userChrome.css snap/firefox/common/.mozilla/firefox/7irn3dcm.default-1560603164746/chrome/
+
 cp /usr/local/bin/archive-current-bg usr/local/bin/
 cp /usr/local/bin/enable-side-scroll usr/local/bin/
 cat ~/.gitconfig | grep -v email > .gitconfig
