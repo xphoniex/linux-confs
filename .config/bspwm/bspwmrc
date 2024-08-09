@@ -48,4 +48,4 @@ polybar large &
 #polybar small &
 feh --bg-fill --randomize ~/Pictures/Wallpapers/*
 
-/usr/local/bin/enable-side-scroll
+/home/da/.local/bin/enable-side-scroll
