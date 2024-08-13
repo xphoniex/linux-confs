@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#ffmpeg -i "$1" -vf "fps=30:-1:flags=lanczos" -c:v pam \
+
+#ffmpeg -i "$1" -vf "fps=30:-1" -c:v pam \
+#    -f image2pipe - | \
+#    convert - -loop 0 -layers optimize ./output.gif
+
+# TODO: automate this
+echo "SCALE IS 1320"
+
+ffmpeg -y -i "$1" -filter_complex \
+"fps=30,scale=1320:-1:flags=lanczos[x];[x]split[x1][x2]; \
+[x1]palettegen[p];[x2][p]paletteuse" output.gif
