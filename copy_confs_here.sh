@@ -30,5 +30,6 @@ cp ~/snap/firefox/common/.mozilla/firefox/7irn3dcm.default-1560603164746/chrome/
 cp ~/.local/bin/archive-current-bg .local/bin/
 cp ~/.local/bin/enable-side-scroll .local/bin/
 cp ~/.local/bin/mp4_to_gif .local/bin/
+cp ~/.local/bin/take-thumbnail-screenshot .local/bin/
 
 cat ~/.gitconfig | grep -v email > .gitconfig

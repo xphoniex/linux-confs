@@ -1,0 +1,10 @@
+#! /bin/bash
+
+current_date=$(date --rfc-3339=seconds | cut -c -19 | tr ':' '-')
+gnome-screenshot -a -f "/home/da/Pictures/cool_thumbnails/Screenshot from $current_date.png" &
+
+sleep 0.1
+
+xdotool mousedown 1
+xdotool mousemove_relative 385 320
+xdotool mouseup 1
