@@ -31,5 +31,6 @@ cp ~/.local/bin/archive-current-bg .local/bin/
 cp ~/.local/bin/enable-side-scroll .local/bin/
 cp ~/.local/bin/mp4_to_gif .local/bin/
 cp ~/.local/bin/take-thumbnail-screenshot .local/bin/
+cp ~/.local/bin/toggle-grayscale .local/bin/
 
 cat ~/.gitconfig | grep -v email > .gitconfig

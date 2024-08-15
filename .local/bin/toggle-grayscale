@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Check the current value of DigitalVibrance
+current_value=$(nvidia-settings --query 0/DigitalVibrance[DP-0] -t)
+
+# -800 leaves `git diff` colors usable
+#gray=-800
+gray=-1024
+
+# Toggle between 0 and -1024
+if [ "$current_value" -eq 0 ]; then
+  new_value="${gray}"
+else
+  new_value=0
+fi
+
+# Assign the new value to DigitalVibrance
+nvidia-settings --assign 0/DigitalVibrance[DP-0]=$new_value
+
+# Print the updated value
+echo "DigitalVibrance[DP-0] is now set to $new_value"
