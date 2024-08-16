@@ -1,0 +1,17 @@
+#!/bin/bash
+
+mkdir transcoded;
+
+for i in *.mp4; do ffmpeg -i "$i" -vcodec mjpeg -q:v 2 -acodec pcm_s16be -q:a 0 -f mov "transcoded/${i%.*}.mov"; done
+#for i in *.MP4; do ffmpeg -i "$i" -vcodec mjpeg -q:v 2 -acodec pcm_s16be -q:a 0 -vf scale="iw/4:ih/4" -f mov "transcoded/${i%.*}.mov"; done
+for i in *.MP4; do ffmpeg -i "$i" -vcodec mjpeg -q:v 2 -acodec pcm_s16be -q:a 0 -f mov "transcoded/${i%.*}.mov"; done
+
+#for i in *.MP4; do ffmpeg -i "$i" -c:v libx264 -preset veryfast -acodec pcm_s16be -q:a 0 -f mov "transcoded/${i%.*}.mov"; done
+
+#ffmpeg -i INPUT.mp4 -c:v dnxhd -profile:v dnxhr_hq -pix_fmt yuv422p -c:a pcm_s16le OUTPUT.mov
+#for i in *.MP4; do ffmpeg -i "$i" -c:v dnxhd -profile:v dnxhr_hq -vf "scale=1920:1080,fps=24000/1001,format=yuv422p" -c:a pcm_s16le -b:v 110M -f mov "transcoded/dnxhd_${i%.*}.mov"; done
+#for i in *.MP4; do ffmpeg -i "$i" -c:v dnxhd -profile:v dnxhr_444 -vf "scale=3840:2160,fps=24000/1001,format=yuv444p10le" -c:a pcm_s16le -b:v 100M -f mov "transcoded/dnxhd_${i%.*}.mov"; done
+#for i in *.MP4; do ffmpeg -i "$i" -b:v 100M -c:v dnxhd -profile:v dnxhr_hq -pix_fmt yuv422p -f mov "transcoded/dnxhd_${i%.*}.mov"; done
+#ffmpeg -i input.mp4 -c:v mpeg4 -b:v 70M -c:a pcm_s16le output.mov
+
+#ffmpeg -i "1.MP4" -vcodec dnxhd -pix_fmt yuv422p -profile:v dnxhr_hq out.mov
