@@ -1,0 +1,4 @@
+#! /bin/bash
+
+find ~/Pictures/ -iname "Screenshot*.png" -mmin -25 -printf '%T+ %p\n' | sort -r | head -1 | grep -o "Screenshot.*" | xargs -I@ open ~/Pictures/@
+
