@@ -1,0 +1,4 @@
+#! /bin/bash
+
+current_date=$(date --rfc-3339=seconds | cut -c -19 | tr ':' '-')
+gnome-screenshot -w -f "/home/da/Pictures/$1/Screenshot from $current_date.png"

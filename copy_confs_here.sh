@@ -34,5 +34,6 @@ cp ~/.local/bin/take-thumbnail-screenshot .local/bin/
 cp ~/.local/bin/toggle-grayscale .local/bin/
 cp ~/.local/bin/transcode-davinci .local/bin/
 cp ~/.local/bin/open-last-screenshot .local/bin/
+cp ~/.local/bin/windowshot-to-folder .local/bin/
 
 cat ~/.gitconfig | grep -v email > .gitconfig
