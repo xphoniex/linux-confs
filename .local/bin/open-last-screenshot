@@ -1,4 +1,7 @@
 #! /bin/bash
 
-find ~/Pictures/ -iname "Screenshot*.png" -mmin -25 -printf '%T+ %p\n' | sort -r | head -1 | grep -o "Screenshot.*" | xargs -I@ open ~/Pictures/@
+# only works for /Pictures/*
+#find ~/Pictures/ -iname "Screenshot*.png" -mmin -25 -printf '%T+ %p\n' | sort -r | head -1 | grep -o "Screenshot.*" | xargs -I@ open ~/Pictures/@
 
+# works for sub-dirs too
+find ~/Pictures/ -iname "Screenshot*.png" -mmin -25 -printf '%T+ %p\n' | sort -r | head -1 | grep -o "/Pictures/.*" | xargs -I@ open ~/@
