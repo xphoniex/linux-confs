@@ -10,7 +10,7 @@
 let clicked = false;
 let archived = false;
 
-const videoId = document.location.toString().substr(32, 11);
+const videoId = document.location.toString().match(/v=(.{11})/)[1];
 
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
@@ -22,18 +22,18 @@ const observer = new MutationObserver((mutations) => {
         }
       }
     }
-    
+
     if (clicked && !archived) {
       for (const el of document.getElementsByTagName('ytd-engagement-panel-section-list-renderer')) {
         if (el.attributes["target-id"].value == "engagement-panel-searchable-transcript"
             && el.attributes["visibility"].value == "ENGAGEMENT_PANEL_VISIBILITY_EXPANDED"
-            && el.innerText != "Transcript") 
+            && el.innerText != "Transcript")
         {
           console.log(GM);
           saveTextAsFile(el.innerText, videoId + ".yt.txt", "");
-        
+
         	archived = true;
-          
+
           // close it
           for (const el of document.getElementsByClassName('yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-only-default')) {
             if (el.ariaLabel == "Close transcript") {
@@ -43,7 +43,7 @@ const observer = new MutationObserver((mutations) => {
         }
       }
     }
-    
+
     /*
     for (const el of document.getElementsByClassName('ytp-caption-segment')) {
       GM.xmlHttpRequest({
