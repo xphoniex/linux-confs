@@ -36,5 +36,6 @@ cp ~/.local/bin/transcode-davinci .local/bin/
 cp ~/.local/bin/open-last-screenshot .local/bin/
 cp ~/.local/bin/windowshot-to-folder .local/bin/
 cp ~/.local/bin/areashot-to-folder .local/bin/
+cp ~/.local/bin/findt .local/bin/
 
 cat ~/.gitconfig | grep -v email > .gitconfig
