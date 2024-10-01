@@ -1,15 +1,15 @@
 [Added Associations]
-video/x-matroska=vlc.desktop;mpv_mpv.desktop;mpv.desktop;
+video/x-matroska=mpv_mpv.desktop;mpv.desktop;vlc.desktop;
 application/octet-stream=org.gnome.gedit.desktop;
 video/mp4=mpv_mpv.desktop;vlc.desktop;mpv.desktop;org.gnome.Totem.desktop;
 video/mp2t=mpv.desktop;
 video/quicktime=mpv.desktop;mpv_mpv.desktop;
 application/x-shellscript=org.gnome.gedit.desktop;vim.desktop;
-image/png=org.gnome.gThumb.desktop;gimp.desktop;rawtherapee.desktop;darktable.desktop;feh.desktop;shotwell-viewer.desktop;display-im6.q16.desktop;
-image/jpeg=gimp.desktop;org.gnome.gThumb.desktop;shotwell-viewer.desktop;display-im6.q16.desktop;
-video/x-msvideo=mpv.desktop;
+image/png=gimp.desktop;org.gnome.gThumb.desktop;rawtherapee.desktop;darktable.desktop;feh.desktop;shotwell-viewer.desktop;display-im6.q16.desktop;
+image/jpeg=org.gnome.gThumb.desktop;gimp.desktop;shotwell-viewer.desktop;display-im6.q16.desktop;
+video/x-msvideo=mpv.desktop;vlc.desktop;org.gnome.Totem.desktop;
 image/webp=org.gnome.gThumb.desktop;
-image/avif=org.gnome.gThumb.desktop;
+image/avif=org.gnome.eog.desktop;org.gnome.gThumb.desktop;
 application/vnd.rar=org.gnome.FileRoller.desktop;
 application/pkix-cert=org.gnome.gedit.desktop;
 application/vnd.apple.keynote=org.gnome.gedit.desktop;
@@ -31,6 +31,7 @@ text/csv=org.gnome.gedit.desktop;
 image/x-eps=org.gnome.Evince.desktop;
 image/x-canon-cr2=shotwell-viewer.desktop;
 audio/x-opus+ogg=mpv.desktop;
+image/x-exr=gimp.desktop;
 
 [Default Applications]
 image/webp=org.gnome.gThumb.desktop
@@ -41,3 +42,8 @@ video/x-matroska=mpv.desktop
 audio/flac=org.gnome.Totem.desktop
 audio/x-opus+ogg=mpv.desktop
 application/ogg=mpv.desktop
+video/x-msvideo=org.gnome.Totem.desktop
+image/avif=org.gnome.gThumb.desktop
+
+[Removed Associations]
+video/x-msvideo=com.blackmagicdesign.rawplayer.desktop;
