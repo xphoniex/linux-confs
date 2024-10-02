@@ -1,3 +1,10 @@
 alias cls="clear && printf '\e[3J'"
 alias term="kill -9 $$"
 alias nocuda="export CUDA_VISIBLE_DEVICES=\"\""
+
+alias xngrep="xargs grep -iran"
+alias xngrepc="xargs grep --color=always -iran"
+
+ngrep() {
+  grep -iran "$@" --include "*.yt*.txt" Downloads
+}
