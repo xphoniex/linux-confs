@@ -5,8 +5,8 @@ video/mp4=mpv_mpv.desktop;vlc.desktop;mpv.desktop;org.gnome.Totem.desktop;
 video/mp2t=mpv.desktop;
 video/quicktime=mpv.desktop;mpv_mpv.desktop;
 application/x-shellscript=org.gnome.gedit.desktop;vim.desktop;
-image/png=gimp.desktop;org.gnome.gThumb.desktop;rawtherapee.desktop;darktable.desktop;feh.desktop;shotwell-viewer.desktop;display-im6.q16.desktop;
-image/jpeg=org.gnome.gThumb.desktop;gimp.desktop;shotwell-viewer.desktop;display-im6.q16.desktop;
+image/png=gimp.desktop;org.gnome.gThumb.desktop;display-im6.q16.desktop;darktable.desktop;shotwell-viewer.desktop;rawtherapee.desktop;feh.desktop;
+image/jpeg=gimp.desktop;org.gnome.gThumb.desktop;shotwell-viewer.desktop;display-im6.q16.desktop;
 video/x-msvideo=mpv.desktop;vlc.desktop;org.gnome.Totem.desktop;
 image/webp=org.gnome.gThumb.desktop;
 image/avif=org.gnome.eog.desktop;org.gnome.gThumb.desktop;
@@ -19,19 +19,22 @@ video/webm=mpv.desktop;
 video/3gpp=mpv.desktop;
 video/x-flv=mpv.desktop;
 audio/mp4=mpv.desktop;vlc.desktop;
-audio/mpeg=mpv.desktop;audacity.desktop;
+audio/mpeg=audacity.desktop;mpv.desktop;
 image/svg+xml=org.gnome.gedit.desktop;
 audio/x-vorbis+ogg=org.gnome.Totem.desktop;
 audio/x-wav=audacity.desktop;mpv.desktop;
 audio/flac=org.gnome.Totem.desktop;
 application/xml=org.gnome.gedit.desktop;
-text/plain=mpv_mpv.desktop;
+text/plain=org.gnome.gedit.desktop;mpv_mpv.desktop;
 application/ogg=mpv.desktop;audacity.desktop;
 text/csv=org.gnome.gedit.desktop;
 image/x-eps=org.gnome.Evince.desktop;
 image/x-canon-cr2=shotwell-viewer.desktop;
 audio/x-opus+ogg=mpv.desktop;
 image/x-exr=gimp.desktop;
+audio/ogg=mpv.desktop;
+application/json=org.gnome.gedit.desktop;
+inode/symlink=org.gnome.gedit.desktop;
 
 [Default Applications]
 image/webp=org.gnome.gThumb.desktop
@@ -44,6 +47,8 @@ audio/x-opus+ogg=mpv.desktop
 application/ogg=mpv.desktop
 video/x-msvideo=org.gnome.Totem.desktop
 image/avif=org.gnome.gThumb.desktop
+audio/ogg=mpv.desktop
+video/x-flv=mpv.desktop
 
 [Removed Associations]
 video/x-msvideo=com.blackmagicdesign.rawplayer.desktop;
