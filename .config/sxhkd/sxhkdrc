@@ -7,6 +7,9 @@ super + Return
 #	urxvt
 	gnome-terminal
 
+super + shift + Return
+	HISTFILE=~/.xterm_history SAVEHIST=10000 HISTTIMEFORMAT="%F %T" xterm -e bash
+
 ctrl + alt + t
 	alacritty
 
