@@ -5,6 +5,14 @@ alias nocuda="export CUDA_VISIBLE_DEVICES=\"\""
 alias xngrep="xargs grep -iran"
 alias xngrepc="xargs grep --color=always -iran"
 
+extract-srt() {
+  idx=$2
+  if [ -z $idx ]; then
+    idx=0
+  fi
+  ffmpeg -i $1 -map 0:s:$idx ${1::-4}.srt
+}
+
 ngrep() {
   grep -iran "$@" --include "*.yt*.txt" Downloads
 }
