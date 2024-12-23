@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name     YouTube auto turn-on closed captions
-// @version  1
+// @version  1.1
 // @grant    none
 // @author   xphoniex
 // @match    https://www.youtube.com/watch*
@@ -68,12 +68,5 @@ function watchForMutations() {
     observer2.observe(document.body, { childList: true, subtree: true });
   }
 }
-
-//if (btn) {
-//  // sometimes beginning is just ads - click won't transfer to actual video
-//  // other times, when disabling captions using 'c', attrs mutations won't hit
-//  // and you can't just rely on this because not always the `btn` is set at the start
-//  setInterval(() => { if (btn.ariaPressed === 'false') { btn.click(); } }, 5 * 1000);
-//}
 
 watchForMutations();
