@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name     Hide YouTube Extras
-// @version  1
+// @version  1.1
 // @grant    none
 // @match    https://www.youtube.com/watch*
 // @author   xphoniex
 // ==/UserScript==
-
 
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
@@ -16,6 +15,10 @@ const observer = new MutationObserver((mutations) => {
     //
     // whole thing on the right side (suggests) including image & text
     for (const el of document.getElementsByTagName('ytd-compact-video-renderer')) {
+      el.style.visibility = "hidden";
+    }
+    // added 2024/09/22
+    for (const el of document.getElementsByTagName('ytm-shorts-lockup-view-model')) {
       el.style.visibility = "hidden";
     }
     // ad on the right side above suggests
@@ -30,6 +33,10 @@ const observer = new MutationObserver((mutations) => {
     for (const el of document.getElementsByClassName('ytd-comment-view-model')) {
       el.style.visibility = "hidden";
     }
+    // livechat -- doesn't work
+    //for (const el of document.getElementsByClassName('yt-live-chat-item-list-renderer')) {
+    //  el.style.visibility = "hidden"; // added 2024-10-18
+    //}
   });
 });
 
