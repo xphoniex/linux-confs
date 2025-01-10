@@ -1,44 +1,64 @@
 // ==UserScript==
 // @name     Hide YouTube Extras
-// @version  1.1
+// @version  1.2
 // @grant    none
 // @match    https://www.youtube.com/watch*
 // @author   xphoniex
+// @run-at   document-idle
 // ==/UserScript==
 
-const observer = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-    // thumbnail on the right side (suggests)
-    //for (const el of document.getElementsByTagName('ytd-thumbnail')) {
-    //  el.style.visibility = "hidden";
-    //}
-    //
+let mutationsArray = [];
+let observerDebounceTimer;
+
+function debounceObserver(mutations) {
+  clearTimeout(observerDebounceTimer);
+  mutationsArray.push(mutations);
+  observerDebounceTimer = setTimeout(dealWithMutations, 10);
+}
+
+function dealWithMutations() {
+  const mutations = mutationsArray.flat();
+  mutationsArray = [];
+  const addedNodes = mutations.map((mutation) => mutation.addedNodes).filter((addedNodes) => addedNodes);
+
+  addedNodes.map((nodeList) => Array.from(nodeList)).flat().map((node) => {
     // whole thing on the right side (suggests) including image & text
-    for (const el of document.getElementsByTagName('ytd-compact-video-renderer')) {
-      el.style.visibility = "hidden";
+    if (node.nodeName === 'YTD-COMPACT-VIDEO-RENDERER') {
+      node.style.visibility = "hidden";
     }
     // added 2024/09/22
-    for (const el of document.getElementsByTagName('ytm-shorts-lockup-view-model')) {
-      el.style.visibility = "hidden";
+    if (node.nodeName === 'YTM-SHORTS-LOCKUP-VIEW-MODEL') {
+      node.style.visibility = "hidden";
     }
     // ad on the right side above suggests
-    for (const el of document.getElementsByTagName('ytd-companion-slot-renderer')) {
-      el.style.visibility = "hidden";
+    if (node.nodeName === 'YTD-COMPANION-SLOT-RENDERER') {
+      node.style.visibility = "hidden";
     }
     // thumbnail at the end of video
-    for (const el of document.getElementsByClassName('ytp-videowall-still-image')) {
-      el.style.visibility = "hidden";
+    if (node.classList && node.classList.contains('ytp-videowall-still-image')) {
+      node.style.visibility = "hidden";
     }
     // comments content
-    for (const el of document.getElementsByClassName('ytd-comment-view-model')) {
+    if (node.nodeName === 'YTD-COMMENT-VIEW-MODEL') {
+      node.style.visibility = "hidden";
+    }
+
+  });
+
+
+  // thumbnail at the end of video
+  for (const el of document.getElementsByClassName('ytp-videowall-still-image')) {
+    if (el.style.visibility !== "hidden") {
       el.style.visibility = "hidden";
     }
-    // livechat -- doesn't work
-    //for (const el of document.getElementsByClassName('yt-live-chat-item-list-renderer')) {
-    //  el.style.visibility = "hidden"; // added 2024-10-18
-    //}
-  });
-});
+  }
+  // comments content
+  //for (const el of document.getElementsByClassName('ytd-comment-view-model')) {
+  //  if (el.style.visibility !== "hidden") {
+  //    el.style.visibility = "hidden";
+  //  }
+  //}
+}
 
-const config = {childList:true,subtree:true};
-observer.observe(document.body, config);
+const observer = new MutationObserver(debounceObserver);
+observer.observe(document.body, { childList: true, subtree: true });
