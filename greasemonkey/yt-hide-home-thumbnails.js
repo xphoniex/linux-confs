@@ -1,18 +1,31 @@
 // ==UserScript==
 // @name     Hide YouTube Home Thumbnails
-// @version  1
+// @version  1.1
 // @match    https://www.youtube.com/
 // @author   xphoniex
 // @run-at   document-idle
 // ==/UserScript==
 
-const observer = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-    for (const el of document.getElementsByClassName('style-scope ytd-rich-grid-media')) {
-      el.style.visibility = 'hidden';
+let mutationsArray = [];
+let observerDebounceTimer;
+
+function debounceObserver(mutations) {
+  clearTimeout(observerDebounceTimer);
+  mutationsArray.push(mutations);
+  observerDebounceTimer = setTimeout(dealWithMutations, 10);
+}
+
+function dealWithMutations() {
+  const mutations = mutationsArray.flat()
+  mutationsArray = [];
+  const addedNodes = mutations.map((mutation) => mutation.addedNodes).filter((addedNodes) => addedNodes);
+
+  addedNodes.map((nodeList) => Array.from(nodeList)).flat().map((node) => {
+    if (node.className === 'style-scope ytd-rich-grid-media') {
+      node.style.visibility = 'hidden';
     }
   });
-});
+}
 
-const config = {childList:true,subtree:true};
-observer.observe(document.body, config);
+const observer = new MutationObserver(debounceObserver);
+observer.observe(document.body, { childList: true, subtree: true });
