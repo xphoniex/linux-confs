@@ -18,8 +18,8 @@ super + @space
 #	dmenu_run
 	rofi -show run
 
-alt + Tab
-	rofi -show window
+#alt + Tab
+#	rofi -show window
 
 # make sxhkd reload its configuration files:
 super + Escape
