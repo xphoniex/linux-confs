@@ -174,3 +174,14 @@ alt + v
         -theme-str '* \{ font: 10px; \}' \
         -theme-str 'listview \{ spacing: 0; \}' \
         -theme-str 'window \{ width: 20em; \}'
+
+#
+# Keys for mouse movements
+ctrl + alt + {Left, Up, Right, Down}
+	xdotool mousemove_relative -- {-150 0, 0 -150, 150 0, 0 150}
+
+ctrl + alt + shift + {Left, Up, Right, Down}
+	xdotool mousemove_relative -- {-25 0, 0 -25, 25 0, 0 25}
+
+ctrl + alt + Return
+	xdotool click 1
