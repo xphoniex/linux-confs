@@ -1,0 +1,40 @@
+#! /usr/bin/python3
+
+import os
+
+commons = {}
+
+path = os.path.dirname(os.path.realpath(__file__))
+
+#with open(path + '/google-10000-english.txt') as f:
+with open(path + '/wiki-100k.txt') as f:
+  for word in f.read().splitlines():
+    commons[word] = 1
+
+import sys
+
+import re
+
+def words(s, pattern = '[a-zA-Z-]+'):
+  return re.findall(pattern, s)
+
+def remove_hyphens(w):
+  while len(w) > 0 and w[0] == '-':
+    w = w[1:]
+
+  while len(w) > 0 and w[-1] == '-':
+    w = w[:-1]
+
+  return w
+
+uniques = {}
+
+for line in sys.stdin:
+  for iword in words(line.lower().rstrip()):
+    iword = remove_hyphens(iword)
+    if iword not in commons:
+      uniques[iword] = 1
+      #print (iword)
+
+for w in uniques.keys():
+  print(w)

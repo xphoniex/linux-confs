@@ -41,3 +41,4 @@ cp ~/.local/bin/findt .local/bin/
 cat ~/.gitconfig | grep -v email > .gitconfig
 
 cp -r ~/in-dev/blankscreen in-dev/
+cp -r ~/in-dev/remove-common-eng-words in-dev/
