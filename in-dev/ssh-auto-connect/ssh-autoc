@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+
+import subprocess, sys
+from time import sleep, time
+
+last_try = 0 # epoch
+tries = 0
+#p = None
+
+def sleep_with_backoff():
+	global last_try
+	global tries
+
+	now = int(time())
+
+	if now - last_try < 60 * 2: # less than two minutes
+		tries += 1
+
+		if tries == 1:
+			# there is also `notify-send -t 0 "msg"` which has a different visual theme
+			# also needs `sudo apt-get install libnotify-bin notify-osd`
+			subprocess.run(["notify-send", "ssh disconnected, re-trying in 3"])
+			sleep(3)
+		elif tries == 2:
+			subprocess.run(["notify-send", "failed to re-connect to ssh, re-trying in 9"])
+			sleep(9)
+		elif tries == 3:
+			subprocess.run(["notify-send", "failed to re-connect to ssh, re-trying in 30"])
+			sleep(30)
+		elif tries == 4:
+			subprocess.run(["notify-send", "failed to re-connect to ssh, re-trying in 45"])
+			sleep(45)
+
+	else:
+		subprocess.run(["notify-send", "ssh disconnected, re-trying in 3"])
+		sleep(3)
+		tries = 1 # reset 'tries' counter
+
+	last_try = now
+
+while True:
+	#if tries > 3:
+	#	p.send_signal(2)
+	#	break
+
+	#if tries > 0:
+	#	p.send_signal(2)
+
+	p = subprocess.Popen([sys.executable, '/home/da/in-dev/ssh-auto-connect/show-connection-systray.py'],
+                                  stdout=subprocess.PIPE,
+                                  stderr=subprocess.STDOUT)
+
+	subprocess.run(["sshpass", "-p", "PASSWORD", "ssh", "-N", "-D", "8080", "USER@DOMAIN.COM", "-o", "ServerAliveInterval 45", "-o", "ServerAliveCountMax 1"])
+
+	p.send_signal(2) # ssh failed/dc'd, so kill systray icon
+
+	sleep_with_backoff()
+	#sleep(3)
+	#tries += 1
+
