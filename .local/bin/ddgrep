@@ -1,0 +1,14 @@
+#!/bin/python3
+import sys
+import re
+
+matches = {}
+
+for line in sys.stdin:
+    second_colon = line.find(':', line.find(':') + 1) + 1
+    text = line[second_colon:]
+
+    if text not in matches:
+        line = re.sub(r'\.yt\(\d+\)\.txt', '.yt.txt', line)
+        print(line, end="")
+        matches[text] = True
