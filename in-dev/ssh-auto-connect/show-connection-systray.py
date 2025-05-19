@@ -34,10 +34,13 @@ gi.require_version('AppIndicator3', '0.1')
 from gi.repository import Gtk, GLib
 from gi.repository import AppIndicator3 as appindicator
 
-
+import sys, subprocess
 
 def menuitem_response(w, buf):
-  print (buf)
+  if buf == "Quit":
+    subprocess.run(["pkill", "-f", "ssh-autoconnect"])
+    subprocess.run(["killall", "ssh"])
+    sys.exit(0)
 
 if __name__ == "__main__":
   ind = appindicator.Indicator.new (
@@ -52,10 +55,18 @@ if __name__ == "__main__":
   ind.set_status (appindicator.IndicatorStatus.ACTIVE)
   #ind.set_attention_icon ("indicator-messages-new")
 
-  """
+
   # create a menu
   menu = Gtk.Menu()
 
+  menu_items = Gtk.MenuItem(label="Quit")
+  menu.append(menu_items)
+  menu_items.connect("activate", menuitem_response, "Quit")
+  menu_items.show()
+
+  ind.set_menu(menu)
+
+  """
   # create some
   for i in range(3):
     buf = "Test-undermenu - %d" % i
@@ -65,7 +76,7 @@ if __name__ == "__main__":
     menu.append(menu_items)
 
     # this is where you would connect your menu item up with a function:
-    #menu_items.connect("activate", menuitem_response, buf)
+    menu_items.connect("activate", menuitem_response, buf)
 
     # show the items
     menu_items.show()
