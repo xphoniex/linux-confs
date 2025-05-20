@@ -30,6 +30,7 @@ def sleep_with_backoff():
 		elif tries == 4:
 			subprocess.run(["notify-send", "failed to re-connect to ssh, re-trying in 45"])
 			sleep(45)
+			# you can also exit the program here (after p.send_signal) and then in while True, remove the redundant p.send_signal
 
 	else:
 		subprocess.run(["notify-send", "ssh disconnected, re-trying in 3"])
@@ -39,9 +40,9 @@ def sleep_with_backoff():
 	last_try = now
 
 while True:
-	#if tries > 3:
-	#	p.send_signal(2)
-	#	break
+	if tries > 3:
+		p.send_signal(2)
+		break
 
 	#if tries > 0:
 	#	p.send_signal(2)
