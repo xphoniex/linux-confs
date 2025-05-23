@@ -1,0 +1,140 @@
+#! /usr/bin/python3
+
+# disable mouse for five minutes
+
+import os
+import sys
+import signal
+import thread
+import threading
+import subprocess
+from time import sleep, time
+
+def keyboard_thread():
+  from Xlib.display import Display
+  from Xlib import X
+  from Xlib.ext import record
+  from Xlib.protocol import rq
+
+  last_three_keys = [None, None, None]
+
+  # get current display
+  disp = Display()
+  root = disp.screen().root
+
+  def keyboard_handler(reply):
+    """ This function is called when a xlib event is fired """
+    data = reply.data
+    while len(data):
+      event, data = rq.EventField(None).parse_binary_value(data, disp.display, None, None)
+
+      # KEYCODE IS FOUND USERING event.detail
+      #print(event.detail)
+
+      if event.type == X.KeyPress:
+        # BUTTON PRESSED
+        #print("pressed")
+        last_three_keys[0] = last_three_keys[1]
+        last_three_keys[1] = last_three_keys[2]
+        last_three_keys[2] = event.detail
+
+        if last_three_keys[0] == 39 and last_three_keys[1] == 32 and last_three_keys[2] == 39:
+            os.kill(os.getpid(), signal.SIGINT)
+      # or if you don't want to p.send_signal(2)
+      #os.system('pkill -TERM -P {pid}'.format(pid=os.getpid())) # kill child systray
+      #os.kill(os.getpid(), signal.SIGINT)
+
+        #elif event.type == X.KeyRelease:
+          # BUTTON RELEASED
+          #print("released")
+
+
+  # Monitor keypress and button press
+  ctx = disp.record_create_context(
+            0,
+            [record.AllClients],
+            [{
+                    'core_requests': (0, 0),
+                    'core_replies': (0, 0),
+                    'ext_requests': (0, 0, 0, 0),
+                    'ext_replies': (0, 0, 0, 0),
+                    'delivered_events': (0, 0),
+                    'device_events': (X.KeyReleaseMask, X.KeyReleaseMask),#, X.ButtonReleaseMask),
+                    'errors': (0, 0),
+                    'client_started': False,
+                    'client_died': False,
+            }])
+  disp.record_enable_context(ctx, keyboard_handler)
+  disp.record_free_context(ctx)
+
+  while 1:
+    # Infinite wait, doesn't do anything as no events are grabbed
+    event = root.display.next_event()
+
+
+# register sig handler
+def sigint_handler(sig, frame):
+  print ("SIGINT received. exiting.")
+  p.send_signal(2)
+  sys.exit(0)
+
+signal.signal(signal.SIGINT, sigint_handler)
+
+#MOUSE_ID = "13"
+MOUSE_IDS = subprocess.getoutput('xinput list | grep "USB gaming mouse" | grep "pointer" | grep -Eo "id=([0-9])*" | cut -c 4-').split('\n')
+
+# when done, enable mouse, release pid file and change icon
+def cleanup():
+  p.send_signal(2)
+  for MOUSE_ID in MOUSE_IDS:
+    os.system(f"xinput enable {MOUSE_ID}")
+  os.unlink(pidfile)
+  #off_icon = "/home/da/in-dev/freeze-tab/icons/target-blue.png".replace("/","\/")
+  #os.system("sed -i 's/Icon.*/Icon=" + off_icon + "/' /home/da/.local/share/applications/focus.desktop")
+
+def instruct_exit():
+  hanging = os.system("ps -p $(cat /tmp/hide-mouse.pid) > /dev/null")
+  if hanging:
+    print ("unclean exit detected, cleaning up after.")
+    cleanup()
+  else:
+    os.system("kill -INT $(cat /tmp/hide-mouse.pid)")
+
+# anchor a pid file
+pid = str(os.getpid())
+pidfile = "/tmp/hide-mouse.pid"
+
+if os.path.isfile(pidfile):
+  print ("%s already exists, signalling to exit." % pidfile)
+  instruct_exit()
+  sys.exit()
+
+#python2
+#file(pidfile, 'w').write(pid)
+open(pidfile, 'w').write(pid)
+
+# main logic here
+try:
+  kt = threading.Thread(target=keyboard_thread, args=())
+  kt.daemon = True
+  sleep(1.5) # wait for mouse to hover out
+  kt.start()
+
+  p = subprocess.Popen([sys.executable, '/home/da/in-dev/hide-mouse-project/hide-mouse-systray.py'],
+                                    stdout=subprocess.PIPE,
+                                    stderr=subprocess.STDOUT)
+
+  for MOUSE_ID in MOUSE_IDS:
+    os.system(f"xinput disable {MOUSE_ID}")
+
+  #on_icon = "/home/da/in-dev/freeze-tab/icons/target-red.png".replace("/","\/")
+  #os.system("sed -i 's/Icon.*/Icon=" + on_icon + "/' /home/da/.local/share/applications/focus.desktop")
+
+  if len(sys.argv) == 2:
+    #sleep(5)
+    sleep(int(sys.argv[1]) * 60)
+  else:
+    sleep(5 * 60) # 5 minutes
+
+finally:
+  cleanup()

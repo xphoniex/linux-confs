@@ -44,3 +44,4 @@ cat ~/.gitconfig | grep -v email > .gitconfig
 cp -r ~/in-dev/blankscreen in-dev/
 cp -r ~/in-dev/remove-common-eng-words in-dev/
 #cp -r ~/in-dev/ssh-auto-connect in-dev/
+cp -r ~/in-dev/hide-mouse-project in-dev/

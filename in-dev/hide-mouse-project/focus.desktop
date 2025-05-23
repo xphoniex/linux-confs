@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Focus Five
+Comment=Laser focus all your attention
+Exec=/home/da/in-dev/hide-mouse-project/hide-mouse
+Terminal=false
+Type=Application
+Icon=/home/da/in-dev/freeze-tab/icons/target-blue.png
