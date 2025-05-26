@@ -45,3 +45,4 @@ cp -r ~/in-dev/blankscreen in-dev/
 cp -r ~/in-dev/remove-common-eng-words in-dev/
 #cp -r ~/in-dev/ssh-auto-connect in-dev/
 cp -r ~/in-dev/hide-mouse-project in-dev/
+cp ~/in-dev/time-tracker/{collect.py,get_window.sh} in-dev/time-tracker/

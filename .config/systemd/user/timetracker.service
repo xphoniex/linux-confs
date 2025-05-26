@@ -3,7 +3,7 @@ Description=Timetracker Collector Daemon
 
 [Service]
 #Type=simple
-ExecStart=/home/da/in-dev/TimeTracker/collect.py
+ExecStart=/home/da/in-dev/time-tracker/collect.py
 Restart=always
 
 [Install]
