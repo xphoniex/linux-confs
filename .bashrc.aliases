@@ -23,3 +23,7 @@ git-clone() {
 ngrep() {
   grep -iran "$@" --include "*.yt*.txt" Downloads
 }
+
+time2date() {
+  date --date="@$1" --rfc-3339=seconds | grep -oE "[^\+]*" | head -1 | tr ':' '-'
+}
