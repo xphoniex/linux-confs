@@ -8,7 +8,7 @@ cp ~/.config/polybar/config .config/polybar/config
 
 cp ~/.config/fish/config.fish .config/fish/
 cp ~/.config/fish/functions/fish_user_key_bindings.fish .config/fish/functions/
-cp ~/.config/mimeapps.list .config/
+#cp ~/.config/mimeapps.list .config/
 cp ~/.config/Code/User/settings.json .config/Code/User/
 cp ~/.config/mpv/mpv.conf .config/mpv/
 cp ~/.config/mpv/input.conf .config/mpv/
