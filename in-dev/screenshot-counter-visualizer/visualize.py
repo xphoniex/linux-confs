@@ -61,8 +61,8 @@ plt.style.use('_mpl-gallery')
 
 fig, ax = plt.subplots()
 
-ax.stairs(y2[:-1],x2, linewidth=1, color='gray')
-ax.stairs(y1[:-1],x1, linewidth=1)
+ax.stairs(y2[:-1],x2, linewidth=0.75, color='gray')
+ax.stairs(y1[:-1],x1, linewidth=0.75, alpha=0.5)
 
 #ax.tick_params(axis='x', labelrotation=90)
 #plt.plot(x,y)
