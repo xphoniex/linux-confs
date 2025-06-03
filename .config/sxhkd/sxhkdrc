@@ -161,6 +161,9 @@ Print
 	gnome-screenshot
 ctrl + Print
 	gnome-screenshot -w
+# https://github.com/baskerville/sxhkd/issues/271 & 234
+shift + Print
+        open-last-screenshot
 
 #
 # Show clipmenu
