@@ -172,15 +172,16 @@ format-connected-foreground = ${colors.foreground}
 format-connected-background = ${colors.background}
 format-connected-underline = #006600
 
-[module/totalbandwidth]
-type = custom/script
-exec = ifconfig wlp5s0 | grep bytes | sed 's/^.*(//;s/)$//' | tr '\n' ' / '
-interval = 5
-format = <label>
-#format-background = #999
-#format-foreground = #000
-#format-padding = 4
-label = %output%
+# this is redundant
+#[module/totalbandwidth]
+#type = custom/script
+#exec = ifconfig wlp5s0 | grep bytes | sed 's/^.*(//;s/)$//' | tr '\n' ' / '
+#interval = 5
+#format = <label>
+##format-background = #999
+##format-foreground = #000
+##format-padding = 4
+#label = %output%
 
 
 [module/totaldownload]
