@@ -186,7 +186,9 @@ format-connected-underline = #006600
 
 [module/totaldownload]
 type = custom/script
-exec = ifconfig wlp5s0 | grep RX | grep bytes | sed 's/^.*(//;s/)$//' | tr '\n' ' '
+exec = cat /sys/class/net/wlp5s0/statistics/rx_bytes | numfmt --to=iec --format "%.1f" | sed 's/\\([0-9]\\+\\)\\([A-Za-z]\\)/\\1 \\2B/'
+# disabled due to bug in ifconfig counter in 6.8.0-60-generic kernel
+#exec = ifconfig wlp5s0 | grep RX | grep bytes | sed 's/^.*(//;s/)$//' | tr '\n' ' '
 interval = 5
 format = <label>
 label = %output%
@@ -195,7 +197,11 @@ module-padding-left = 0
 
 [module/totalupload]
 type = custom/script
-exec = ifconfig wlp5s0 | grep TX | grep bytes | sed 's/^.*(//;s/)$//' | tr '\n' ' '
+# slashes not escaped, kept for readability
+#exec = cat /sys/class/net/wlp5s0/statistics/tx_bytes | numfmt --to=iec --format "%.1f" | sed 's/\([0-9]\+\)\([A-Za-z]\)/\1 \2B/'
+exec = cat /sys/class/net/wlp5s0/statistics/tx_bytes | numfmt --to=iec --format "%.1f" | sed 's/\\([0-9]\\+\\)\\([A-Za-z]\\)/\\1 \\2B/'
+# disabled due to bug in ifconfig counter in 6.8.0-60-generic kernel
+#exec = ifconfig wlp5s0 | grep TX | grep bytes | sed 's/^.*(//;s/)$//' | tr '\n' ' '
 interval = 5
 format = <label>
 label = %output%
