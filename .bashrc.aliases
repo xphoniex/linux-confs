@@ -5,6 +5,8 @@ alias nocuda="export CUDA_VISIBLE_DEVICES=\"\""
 alias xngrep="xargs grep -iran"
 alias xngrepc="xargs grep --color=always -iran"
 
+alias pipe2date="xargs -I% date --date=\"@%\" --rfc-3339=seconds | tr ':' '-' | sed -e 's/+..-..//g'"
+
 extract-srt() {
   idx=$2
   if [ -z $idx ]; then
