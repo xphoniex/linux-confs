@@ -6,6 +6,7 @@ alias xngrep="xargs grep -iran"
 alias xngrepc="xargs grep --color=always -iran"
 
 alias pipe2date="xargs -I% date --date=\"@%\" --rfc-3339=seconds | tr ':' '-' | sed -e 's/+..-..//g'"
+alias unique-datehour="cut -c 1-13 | sort -u"
 
 extract-srt() {
   idx=$2
