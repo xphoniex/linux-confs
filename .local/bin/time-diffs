@@ -1,0 +1,12 @@
+#! /usr/bin/python3
+
+from datetime import datetime
+import sys
+
+times = []
+
+for line in sys.stdin:
+  times.append(datetime.strptime(line.strip(), "%H-%M-%S"))
+
+for i in range(1, len(times)):
+  print(times[i-1].strftime("%H:%M:%S"), "->", times[i].strftime("%H:%M:%S"), "\t", times[i] - times[i-1])

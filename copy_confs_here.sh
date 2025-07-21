@@ -38,6 +38,7 @@ cp ~/.local/bin/windowshot-to-folder .local/bin/
 cp ~/.local/bin/areashot-to-folder .local/bin/
 cp ~/.local/bin/findt .local/bin/
 cp ~/.local/bin/ddgrep .local/bin/
+cp ~/.local/bin/time-diffs .local/bin/
 
 cat ~/.gitconfig | grep -v email > .gitconfig
 
