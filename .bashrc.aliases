@@ -8,6 +8,7 @@ alias xngrepc="xargs grep --color=always -iran"
 alias pipe2date="xargs -I% date --date=\"@%\" --rfc-3339=seconds | tr ':' '-' | sed -e 's/+..-..//g'"
 alias unique-datehour="cut -c 1-13 | sort -u"
 alias extract-timestamps="grep -oE \"[0-9]{10}$\""
+alias extract-ytids="sed -E \"s/.*(.{11}).yt.*/\1/g\""
 
 extract-srt() {
   idx=$2
