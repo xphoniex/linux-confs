@@ -10,6 +10,8 @@ alias unique-datehour="cut -c 1-13 | sort -u"
 alias extract-timestamps="grep -oE \"[0-9]{10}$\""
 alias extract-ytids="sed -E \"s/.*(.{11}).yt.*/\1/g\""
 
+alias today="date --rfc-3339=date"
+
 extract-srt() {
   idx=$2
   if [ -z $idx ]; then
