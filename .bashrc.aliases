@@ -11,6 +11,7 @@ alias extract-timestamps="grep -oE \"[0-9]{10}$\""
 alias extract-ytids="sed -E \"s/.*(.{11}).yt.*/\1/g\""
 
 alias today="date --rfc-3339=date"
+alias open-today-logs="open `date --rfc-3339=date`.logs"
 
 extract-srt() {
   idx=$2
