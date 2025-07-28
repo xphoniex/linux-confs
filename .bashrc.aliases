@@ -35,3 +35,7 @@ ngrep() {
 time2date() {
   date --date="@$1" --rfc-3339=seconds | grep -oE "[^\+]*" | head -1 | tr ':' '-'
 }
+
+beep1() {
+  paplay /usr/share/sounds/freedesktop/stereo/bell.oga
+}
