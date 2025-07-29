@@ -39,3 +39,7 @@ time2date() {
 beep1() {
   paplay /usr/share/sounds/freedesktop/stereo/bell.oga
 }
+
+beep2() {
+  ffplay -f lavfi -i "sine=frequency=1000:duration=0.2" -nodisp -autoexit
+}
