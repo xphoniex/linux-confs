@@ -43,3 +43,14 @@ beep1() {
 beep2() {
   ffplay -f lavfi -i "sine=frequency=1000:duration=0.2" -nodisp -autoexit
 }
+
+check-internet() {
+  while true;
+  do
+    if [ $(ping google.com -c1 2>&1 | grep 'service not known' | wc -l) == 0 ]; then
+      notify-send "we're online" && beep1 && break
+    else
+      echo "Not online -- `date`" && sleep 30
+    fi
+  done
+}
