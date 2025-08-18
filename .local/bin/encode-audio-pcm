@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# DaVinci Resolve can't work with AAC audio in linux due to licensing, so re-encode the audio to linear PCM.
+# note: output container better be mov or mkv
+# note 2: resolve would play audio with mkv, but won't display the waveform, ggc
+
+ffmpeg -i $1 -c:v copy -c:a pcm_s16le ${1:0:-4}.pcms16le.mov #${1: -3}
