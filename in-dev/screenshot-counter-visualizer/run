@@ -3,7 +3,7 @@
 curr_path=$(dirname "$0")
 
 # screenshot counter
-find ~/Pictures -iname "Screenshot *" | grep -v "2021\|2022\|2023" | grep -Eo "20..-..-.." | sort | uniq -c > $curr_path/screenshot_ts.txt
+find ~/Pictures -iname "Screenshot *" | grep -v "2021\|2022\|2023" | grep -Eo " 20..-..-.. " | tr -d ' ' | sort | uniq -c > $curr_path/screenshot_ts.txt
 
 # for timetracker context-switch counter
 find in-dev/time-tracker/data -iname "*.logs" | grep -v "2021\|2022\|2023" | sort | xargs -I@ wc -l @ | rev | cut -c 6- | rev | sed 's/in-dev\/time-tracker\/data\///' > $curr_path/timetracker_ts.txt

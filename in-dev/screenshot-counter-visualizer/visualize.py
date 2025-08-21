@@ -61,8 +61,8 @@ plt.style.use('_mpl-gallery')
 
 fig, ax = plt.subplots()
 
-ax.stairs(y2[:-1],x2, linewidth=0.75, color='gray')
-ax.stairs(y1[:-1],x1, linewidth=0.75, alpha=0.5)
+ax.stairs(y2[:-1],x2, linewidth=0.75, color='gray', label='context switch')
+ax.stairs(y1[:-1],x1, linewidth=0.75, alpha=0.5, label='screenshots')
 
 #ax.tick_params(axis='x', labelrotation=90)
 #plt.plot(x,y)
@@ -70,6 +70,8 @@ ax.stairs(y1[:-1],x1, linewidth=0.75, alpha=0.5)
 #ax.set(xlim=(dates[0], dates[-1]))
 ax.set(xlim=(x1[0], x1[-1]))
 #plt.tight_layout()
+
+plt.legend(loc='upper right')
 
 plt.show()
 
