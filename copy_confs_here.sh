@@ -40,6 +40,7 @@ cp ~/.local/bin/findt .local/bin/
 cp ~/.local/bin/ddgrep .local/bin/
 cp ~/.local/bin/time-diffs .local/bin/
 cp ~/.local/bin/encode-audio-pcm .local/bin/
+cp ~/.local/bin/open-closest .local/bin/
 
 cat ~/.gitconfig | grep -v email > .gitconfig
 

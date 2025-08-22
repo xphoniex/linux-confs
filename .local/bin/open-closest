@@ -1,0 +1,15 @@
+#! /bin/bash
+
+time="$@"
+
+for i in `seq 1 ${#time}`; do
+  pat=${time:: -$i}
+  res=$(find ~/Pictures/_memory -iname "Screenshot from $pat*" | head -1)
+  if [ -n "$res" ]; then
+    open "$res"
+    break
+  else
+    echo "No match for $pat"
+  fi
+done
+
