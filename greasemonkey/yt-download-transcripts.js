@@ -21,11 +21,13 @@ function debounceObserver(mutations) {
   observerDebounceTimer = setTimeout(dealWithMutations, 10);
 }
 
+setTimeout(() => { // added 2025-04-04
 let showTranscriptBtn = document.getElementsByClassName('yt-spec-button-shape-next yt-spec-button-shape-next--outline yt-spec-button-shape-next--call-to-action yt-spec-button-shape-next--size-m')[0] || undefined;
 if (showTranscriptBtn) {
   showTranscriptBtn.click();
   clicked = true;
 }
+}, 1500);
 
 function dealWithMutations() {
   const mutations = mutationsArray.flat();
@@ -83,6 +85,7 @@ function dealWithMutations() {
           if (el.ariaLabel == "Close transcript") {
             el.click();
             observer.disconnect();
+            manualSrtBtn.style.visibility = 'hidden'; // added 2025-08-15
           }
         }
       }
@@ -120,6 +123,21 @@ function saveTranscript() {
           el.click();
         }
       }
+
+      return true;
     }
   }
 }
+
+// added 2025-08-15
+const manualSrtBtn = document.createElement("a");
+const textnode = document.createTextNode("srt");
+manualSrtBtn.style = "position: fixed; bottom: 0px; left: 0px; background-color: gray;z-index:15000;";
+manualSrtBtn.appendChild(textnode);
+document.body.appendChild(manualSrtBtn);
+
+manualSrtBtn.onclick = () => {
+  if (saveTranscript()) {
+    manualSrtBtn.style.visibility = 'hidden';
+  }
+};
