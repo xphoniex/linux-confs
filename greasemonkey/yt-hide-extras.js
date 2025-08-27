@@ -42,10 +42,15 @@ function dealWithMutations() {
     if (node.nodeName === 'YTD-COMMENT-VIEW-MODEL') {
       node.style.visibility = "hidden";
     }
-
+    // right side video, added 2025/07/25
+    if (node.nodeName === 'YT-LOCKUP-VIEW-MODEL') {
+      node.style.visibility = "hidden";
+    }
+    // added 2025/08/12
+    if (node.nodeName.toLowerCase() === 'ytd-comments') {
+      node.style.visibility = "hidden";
+    }
   });
-
-
   // thumbnail at the end of video
   for (const el of document.getElementsByClassName('ytp-videowall-still-image')) {
     if (el.style.visibility !== "hidden") {
@@ -58,6 +63,7 @@ function dealWithMutations() {
   //    el.style.visibility = "hidden";
   //  }
   //}
+
 }
 
 const observer = new MutationObserver(debounceObserver);
