@@ -12,6 +12,7 @@ alias extract-ytids="sed -E \"s/.*(.{11}).yt.*/\1/g\""
 
 alias today="date --rfc-3339=date"
 alias open-today-logs="open `date --rfc-3339=date`.logs"
+alias goto-logs="cd ~/in-dev/time-tracker/data"
 
 extract-srt() {
   idx=$2
