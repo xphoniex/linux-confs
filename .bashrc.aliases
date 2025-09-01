@@ -48,9 +48,10 @@ beep2() {
 check-internet() {
   while true;
   do
-    if [ $(ping google.com -c1 2>&1 | grep 'service not known' | wc -l) == 0 ]; then
+    if [ $(ping 8.8.8.8 -c1 2>&1 | grep "time=.* ms" | wc -l) == 1 ]; then
       notify-send "we're online" && beep1 && break
     else
+      # failure cases: "Name or service not known" || "Time to live exceeded"
       echo "Not online -- `date`" && sleep 30
     fi
   done
